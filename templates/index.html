@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gender Prediction</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #fff;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            text-align: left;
+            font-weight: bold;
+            color: #444;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus, select:focus {
+            border-color: #2575fc;
+            box-shadow: 0 0 8px rgba(37, 117, 252, 0.3);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background: #2575fc;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #6a11cb;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #222;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Gender Prediction Form</h2>
+        <form action="/predict" method="post">
+
+            <label>Long Hair:</label>
+            <select name="long_hair">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+
+            <label>Forehead Width (cm):</label>
+            <input type="text" name="forehead_width_cm" required>
+
+            <label>Forehead Height (cm):</label>
+            <input type="text" name="forehead_height_cm" required>
+
+            <label>Nose Wide:</label>
+            <select name="nose_wide">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+
+            <label>Nose Long:</label>
+            <select name="nose_long">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+
+            <label>Lips Thin:</label>
+            <select name="lips_thin">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+
+            <label>Distance Nose to Lip Long:</label>
+            <select name="distance_nose_to_lip_long">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+
+            <button type="submit" class="btn">Predict</button>
+        </form>
+
+        <div class="result">
+            {{ prediction_text }}
+        </div>
+    </div>
+</body>
+</html>
